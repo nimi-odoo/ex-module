@@ -20,7 +20,7 @@ class Book(models.Model):
 
     rating = fields.Selection(
         string="Rating", 
-        selection=[1, 2, 3, 4, 5], 
+        selection=[('1', '1'), ('2','2'), ('3', '3'), ('4', '4'), ('5', '5')], 
         copy=False
     )
     
