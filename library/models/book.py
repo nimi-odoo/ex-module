@@ -15,8 +15,8 @@ class Book(models.Model):
     year = fields.Char(string="Year of Publication")
     isbn = fields.Char(string="ISBN")
     genre = fields.Char(string="Genre")
-    
-    pages = fields.Int(string="Pages", required=True)
+
+    pages = fields.Integer(string="Pages", required=True)
 
     rating = fields.Selection(
         string="Rating", 
