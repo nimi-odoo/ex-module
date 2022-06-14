@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_academy_admin" model="res.groups">
+        <field name="name">Academy / Admin</field>
+    </record>
+
+    <!-- Record rule so only active courses can be modified -->
+    <record id="only_active_modify" model="ir.rule">
+        <field name="name">Only Active Courses Can Be Modified</field>
+        <field name="perm_read" eval="0"/>
+        <field name ="perm_write" eval="1"/> <!-- eval="1" since this is one of the permissions that we want to modify -->
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="domain_force">[('active'),('='),(True)]</field> <!-- Permissions for write and unlink will only activate when active is true -->
+        <!-- Specify the model on which these record rules will apply -->
+        <field name="model_id" ref="model_academy_course"/>
+    </record>
+</odoo>

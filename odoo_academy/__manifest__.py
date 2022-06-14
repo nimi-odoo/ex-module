@@ -21,7 +21,10 @@
     
     'depends': ['base'],
     
-    'data': [],
+    'data': [
+        'security/academy_security.xml', # Make sure to load the xml file first. The groups need to be loaded before the access rights
+        'security/ir.model.access.csv'
+    ],
     
     'demo': [
         'demo/academy_demo.xml'
