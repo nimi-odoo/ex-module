@@ -1,3 +1,3 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-library_librarian,librarian,model_library_book,group_library_librarian,1,1,1,1
-library_customer,library_read_all,model_library_book,group_library_customer,1,0,0,0
+library_librarian,library librarian,model_library_book,group_library_librarian,1,1,1,1
+library_customer,library customer,model_library_book,group_library_customer,1,0,0,0
