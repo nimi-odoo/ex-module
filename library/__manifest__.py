@@ -22,5 +22,7 @@
     
     'data': [],
     
-    'demo': [],
+    'demo': [
+        'demo/library_demo.xml'
+    ],
 }

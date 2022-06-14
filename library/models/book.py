@@ -12,7 +12,7 @@ class Book(models.Model):
     author = fields.Char(string="Author")
     editor = fields.Char(string="Editor")
     publisher = fields.Char(string="Publisher")
-    year = fields.Char(string="Year of Publication")
+    year = fields.Integer(string="Year of Publication")
     isbn = fields.Char(string="ISBN")
     genre = fields.Char(string="Genre")
 
