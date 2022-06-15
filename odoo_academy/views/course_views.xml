@@ -13,9 +13,12 @@
                         <group>
                             <group>
                                 <field name="active" /> <!-- So we can tell if it's active or inactive by clicking on a record -->
+                                <field name="level" />
                             </group>
                             <group>
-                                <field name="level" />
+                                <field name="base_price" />
+                                <field name="additional_fee" />
+                                <field name="total_price" force_save="1" /> <!-- Since field is readonly, we need to force it to save onchange -->
                             </group>
                         </group>
                         <notebook> 
