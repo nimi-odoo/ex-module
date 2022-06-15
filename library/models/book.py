@@ -24,3 +24,4 @@ class Book(models.Model):
         copy=False
     )
     
+    notes = fields.Text(string="Notes")

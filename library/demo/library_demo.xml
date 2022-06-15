@@ -12,6 +12,7 @@
             <field name="genre"></field>
             <field name="pages">145</field>
             <field name="rating">5</field>
+            <field name="notes"></field>
         </record>
         <record model="library.book" id="ba_badBook">
             <field name="name"> Terrible Book </field>
@@ -24,6 +25,7 @@
             <field name="genre">Non-fiction</field>
             <field name="pages">12</field>
             <field name="rating">1</field>
+            <field name="notes"></field>
         </record>
         <record model="library.book" id="oa_okBook">
             <field name="name"> Ok Book </field>
@@ -36,6 +38,7 @@
             <field name="genre">Non-fiction</field>
             <field name="pages">350</field>
             <field name="rating">3</field>
+            <field name="notes"></field>
         </record>
         <record model="library.book" id="mm_morbBook">
             <field name="name"> Morbius </field>
@@ -48,6 +51,7 @@
             <field name="genre">Morbin'</field>
             <field name="pages">200</field>
             <field name="rating">5</field>
+            <field name="notes"></field>
         </record>
         <record model="library.book" id="mm_morbinTime">
             <field name="name"> Morbin' Time </field>
@@ -60,6 +64,7 @@
             <field name="genre">Morbin'</field>
             <field name="pages">207</field>
             <field name="rating">5</field>
+            <field name="notes"></field>
         </record>
     </data>
 </odoo>
