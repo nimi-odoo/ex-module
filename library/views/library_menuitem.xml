@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="library_list_action">
+            <field name="name">Books</field>
+            <field name="res_model">library.book</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Library" id="menu_library" sequence="1" web_icon="library,static/description/library.jpg" /> <!--Icon on homepage-->
+        <menuitem name="Library" id="menu_library_sub" parent="menu_library" sequence="2" />
+        <menuitem name="Books" id="menu_library_book" parent="menu_library_sub" sequence="3" action="library_list_action" />
+
+    </data>
+</odoo>
