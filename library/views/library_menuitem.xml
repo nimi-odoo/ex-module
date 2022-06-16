@@ -2,15 +2,33 @@
 
 <odoo>
     <data>
-        <record model="ir.actions.act_window" id="library_list_action">
+        <record model="ir.actions.act_window" id="book_list_action">
             <field name="name">Books</field>
             <field name="res_model">library.book</field>
             <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create the first book record
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="rental_list_action">
+            <field name="name">Rentals</field>
+            <field name="res_model">library.rental</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create the first rental record
+                </p>
+            </field>
         </record>
 
         <menuitem name="Library" id="menu_library" sequence="1" web_icon="library,static/description/library.jpg" /> <!--Icon on homepage-->
+
         <menuitem name="Library" id="menu_library_sub" parent="menu_library" sequence="2" />
-        <menuitem name="Books" id="menu_library_book" parent="menu_library_sub" sequence="3" action="library_list_action" />
+        <menuitem name="Books" id="menu_library_book" parent="menu_library_sub" sequence="3" action="book_list_action" />
+        <menuitem name="Rentals" id="menu_library_rental" parent="menu_library_sub" sequence="4" action="rental_list_action" />
 
     </data>
 </odoo>
