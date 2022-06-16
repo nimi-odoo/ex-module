@@ -25,7 +25,8 @@
         'security/academy_security.xml', # Make sure to load the xml file first. The groups need to be loaded before the access rights
         'security/ir.model.access.csv',
         'views/academy_menuitems.xml',
-        'views/course_views.xml'
+        'views/course_views.xml',
+        'views/session_views.xml'
     ],
     
     'demo': [

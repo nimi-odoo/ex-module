@@ -25,6 +25,9 @@
                             <page string="Description"> <!-- Tabs -->
                                 <field name="description" />
                             </page>
+                            <page string="Sessions">
+                                <field name="session_ids" />
+                            </page>
                         </notebook>
                     </sheet>
                 </form>
