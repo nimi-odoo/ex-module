@@ -13,7 +13,9 @@
                             <field name="customer_id" />
                         </group>
                         <group>
-                            <field name="book_ids" />
+                            <!-- <field name="book_ids" /> -->
+                            <field name="rented_books" />
+                            <field name="rented_book" />
                         </group>
                     </sheet>
                 </form>
@@ -28,6 +30,18 @@
                     <field name="name" />
                     <!-- <field name="customer_id" /> -->
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="rental_view_map">
+            <field name="name">library.rental.map</field>
+            <field name="model">library.rental</field>
+            <field name="arch" type="xml">
+                <map res_partner="customer_id" >
+                    <!-- <field name="name" string="Customer Name" /> -->
+                    <field name="rented_books" string="Rented Books" />
+                    <field name="rented_book" string="Rented Book"/>
+                </map>
             </field>
         </record>
     </data>

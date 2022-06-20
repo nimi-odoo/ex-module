@@ -18,7 +18,7 @@
     'category': 'Learning',
     'version': '0.1',
     
-    'depends': ['base'],
+    'depends': ['base', 'web_map'],
     
     'data': [
         'security/library_security.xml',

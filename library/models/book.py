@@ -27,8 +27,13 @@ class Book(models.Model):
     
     notes = fields.Text(string="Notes")
 
+    # renter_ids = fields.Many2many(comodel_name="library.rental", inverse_name="book_ids", string="Renters")
+    # renter_id = fields.Many2one(comodel_name="library.rental", string="Renter")
+
     @api.onchange("isbn")
     def _verify_isbn_length(self):
+        if not self.isbn: return
+        print("\n",self.isbn,"\n")
         without_dashes = "".join(self.isbn.split("-"))
         if len(without_dashes) != 13:
             raise ValidationError("The ISBN must be exactly 13 characters long")
