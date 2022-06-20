@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from datetime import timedelta
 
 class Session(models.Model):
     _name = 'academy.session'
@@ -18,3 +19,25 @@ class Session(models.Model):
 
     student_ids = fields.Many2many(comodel_name="res.partner", string="Students")
 
+    start_date = fields.Date(string="Start Date", default=fields.Date.today)
+    duration = fields.Integer(string="Session Days", default=1)
+    end_date=fields.Date(string="End Date", compute="_compute_end_date", inverse="_inverse_end_date", stored=True)
+
+    # Update the end date from the start_date and duration whenever either one changes
+    @api.depends("start_date", "duration")
+    def _compute_end_date(self):
+        for record in self:
+            if not (record.start_date and record.duration): # If either the start date or duration have not been set
+                self.end_date = self.start_date # Set the end date to the start date
+            else:
+                duration = timedelta(days=record.duration) # Convert duration from integer to days
+                record.end_date = record.start_date + duration 
+
+    # Inverse function incase somebody wants to set the end date directly rather than the duration
+    
+    def _inverse_end_date(self):
+        for record in self:
+            if record.start_date and record.end_date: # If both are set
+                record.duration = (record.end_date - record.start_date).days + 1 # Convert to days and add 1 so Friday - Monday is 5 days instead of 4
+            else:
+                continue
