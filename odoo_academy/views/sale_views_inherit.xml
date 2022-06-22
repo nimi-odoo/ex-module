@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_order_form_inherit_academy">
+            <field name="name">sale.order.form.inherit.academy</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <!-- Go until a field element is found, use a selector to find payment_term_id field -->
+                <!-- Place the new field after the one found -->
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="session_id"/> <!-- Session_id field will be displayed after the payment_term_id field in the view -->
+                </xpath>
+
+                <!-- Using the field element selector -->
+                <!-- Put the instructor_id field above the partner_id field -->
+                <field name="partner_id" position="before">
+                    <field name="instructor_id" attrs="{'invisible':[('session_id', '=', False)]}"/>
+                </field>
+
+                <!-- Using xpath to insert a student page -->
+                <xpath expr="//sheet//notebook" position="inside"> <!-- Places it inside the notebook at the end -->
+                    <page string="Students" attrs="{'invisible':[('session_id', '=', False)]}"> <!-- Hide the page if there is no session_id -->
+                        <field name="student_ids">
+                            <!-- Formatting the view of a Many2many -->
+                            <tree>
+                                <field name="name"/>
+                                <field name="phone"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo> 
