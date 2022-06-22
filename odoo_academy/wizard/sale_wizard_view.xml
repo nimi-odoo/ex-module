@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="academy_sale_wizard_form_view">
+            <field name="name">academy.sale.wizard.form</field>
+            <field name="model">academy.sale.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Sale Order for Session">
+                    <group>
+                        <field name="session_id" />
+                        <!-- Need this in the view to use it in a domain, but we don't want to visibly show this field -->
+                        <field name="session_student_ids" invisible="1"/>
+                        <!-- domain to filter out students not in current session -->
+                        <field name="student_ids" domain="[('id', 'in', session_student_ids)]"/>
+                    </group>
+                    <footer>
+                        <!-- Buttons to execute python code, name is the function to execute -->
+                        <button name="create_sale_orders" type="object" string="Create" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string ="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <!-- Launch the sales wizard from a drop down in the action menu -->
+        <!-- <act_window id="launch_sale_wizard" name="Create Sale Order" binding_model="academy.session" res_model="academy.sale.wizard" view_mode="form" target="new"/> -->
+        <record model="ir.actions.act_window" id="launch_sale_wizard">
+            <field name="name">Create Sale Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="binding_model_id" ref="academy.session"/>
+            <field name="res_model">academy.sale.wizard</field>
+            <field name="target">new</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <!-- <menuitem name="Wizards" id="menu_wizards" sequence="2" /> -->
+        <!-- <menuitem name="Wizards" id="menu_wizards_sub" parent="menu_wizards" sequence="4" /> -->
+        <!-- <menuitem name="Create Sale Order" id="menu_academy_sale_wizard" parent="menu_academy_sub" sequence="5" action ="launch_sale_wizard"/> -->
+        
+
+    </data>
+</odoo>
