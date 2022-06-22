@@ -19,7 +19,7 @@
     'category': 'Training',
     'version': '0.1',
     
-    'depends': ['sale'],
+    'depends': ['sale', 'website'],
     
     'data': [
         'security/academy_security.xml', # Make sure to load the xml file first. The groups need to be loaded before the access rights
@@ -30,7 +30,8 @@
         'views/sale_views_inherit.xml',
         'views/product_views_inherit.xml',
         # 'wizard/sale_wizard_view.xml',
-        'reports/session_report_templates.xml'
+        'reports/session_report_templates.xml',
+        'views/academy_web_templates.xml',
     ],
     
     'demo': [
