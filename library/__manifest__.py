@@ -14,7 +14,7 @@
     'author': 'Odoo',
     'licence': 'OEPL 1.0',
     'website': 'https://www.odoo.com',
-    
+    'license': 'OPL-1',
     'category': 'Learning',
     'version': '0.1',
     
